@@ -1,19 +1,27 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-    "http://www.w3.org/TR/html4/loose.dtd">
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
+    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-<html>
+    <html>
+
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Welcome to Spring Web MVC project</title>
+        <script src="https://kit.fontawesome.com/0444e3e789.js" crossorigin="anonymous"></script>
+        <title>LOGIN</title>
+        <link rel="stylesheet" href="./styles/login.css">
     </head>
 
     <body>
-        <p>Hello! This is the default welcome page for a Spring Web MVC project.</p>
-        <p><i>To display a different welcome page for this project, modify</i>
-            <tt>index.jsp</tt> <i>, or create your own welcome page then change
-                the redirection in</i> <tt>redirect.jsp</tt> <i>to point to the new
-                welcome page and also update the welcome-file setting in</i>
-            <tt>web.xml</tt>.</p>
+        <div class="row d-flex justify-content-center">
+            <div class="container">
+                <div class="areaLogin">
+                    <h2>LOGIN</h2>
+                    <input type="text" placeholder="Usuario...">
+                    <input type="text" placeholder="Senha...">
+                    <button class="validaçaoLogin">Logar</button>
+                    <a href="./telaCadastro.jsp">nao possui login(cadastrar-se)</a>
+                </div>
+            </div>
+        </div>
     </body>
-</html>
+
+    </html>

@@ -1,0 +1,20 @@
+body .container{
+    display: flex;
+    
+}
+
+.container{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.areaLogin{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+    padding: 4px;
+}
