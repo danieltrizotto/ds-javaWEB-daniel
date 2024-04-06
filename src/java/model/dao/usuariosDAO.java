@@ -43,6 +43,7 @@ public class usuariosDAO {
                 u.setTelefone(rs.getString("telefone"));
                 u.setData_nascimento(rs.getDate("data_nascimento"));
                 u.setCpf(rs.getString("cpf"));
+                dao.add(u);
             }
 
             rs.close();
