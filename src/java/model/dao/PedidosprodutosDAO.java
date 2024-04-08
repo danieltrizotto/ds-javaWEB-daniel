@@ -12,17 +12,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import model.bean.usuarios;
-import java.sql.Date;
+import model.bean.Pedidos_produtos;
 
 /**
  *
  * @author Senai
  */
-public class usuariosDAO {
+public class PedidosprodutosDAO {
 
-    public List<usuarios> read() {
-        List<usuarios> dao = new ArrayList();
+    public List<Pedidos_produtos> read() {
+        List<Pedidos_produtos> dao = new ArrayList();
 
         try {
 
@@ -30,20 +29,19 @@ public class usuariosDAO {
             PreparedStatement stmt = null;
             ResultSet rs = null;
 
-            stmt = conexao.prepareStatement("SELECT * FROM  usuarios");
+            stmt = conexao.prepareStatement("SELECT * FROM  pedidos_produtos");
 
             rs = stmt.executeQuery();
 
             while (rs.next()) {
-                usuarios u = new usuarios();
-                u.setId_usuario(rs.getInt("id_usuarios"));
-                u.setNome(rs.getString("nome"));
-                u.setUsuario(rs.getString("usuario"));
-                u.setSenha(rs.getString("senha"));
-                u.setTelefone(rs.getString("telefone"));
-                u.setData_nascimento(rs.getDate("data_nascimento"));
-                u.setCpf(rs.getString("cpf"));
-                dao.add(u);
+                Pedidos_produtos p = new Pedidos_produtos();
+                p.setId_pedido_produto(rs.getInt("id_pedido_produto"));
+                p.setPedido_id(rs.getInt("pedido_id"));
+                p.setProduto_id(rs.getInt("produto_id"));
+                p.setQuantidade(rs.getInt("quantidade"));
+                p.setPreco_unitario(rs.getFloat("preço_unitario"));
+
+                dao.add(p);
             }
 
             rs.close();
@@ -54,19 +52,19 @@ public class usuariosDAO {
         }
         return dao;
     }
-
-    public void criar(usuarios u) {
+    
+    public void criar(Pedidos_produtos p) {
         try {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
 
-            stmt = conexao.prepareStatement("insert into usuarios(nome,senha,usuario,telefone,data_nascimento,cpf) values (?,?,?,?,?,?)");
+            stmt = conexao.prepareStatement("insert into pedido(pedido_id,produto_id,quantidade,preco_unitario) values (?,?,?,?)");
             
-            stmt.setString(1, u.getNome());
-            stmt.setString(2, u.getSenha());
-            stmt.setString(3, u.getUsuario());
-            stmt.setString(4, u.getTelefone());
-            stmt.setDate(5, (Date) u.getData_nascimento());
+           stmt.setInt(1, p.getPedido_id());
+           stmt.setInt(2, p.getProduto_id());
+           stmt.setInt(3, p.getQuantidade());
+           stmt.setFloat(4, p.getPreco_unitario());
+    
             stmt.executeUpdate();
 
             stmt.close();
@@ -77,5 +75,5 @@ public class usuariosDAO {
         }
 
     }
-
+    
 }

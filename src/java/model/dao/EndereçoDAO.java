@@ -11,15 +11,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import model.bean.endereço;
+import model.bean.Endereço;
 
 /**
  *
  * @author User
  */
-public class endereçoDAO {
-    public List<endereço> read() {
-        List<endereço> dao = new ArrayList();
+public class EndereçoDAO {
+
+    public List<Endereço> read() {
+        List<Endereço> dao = new ArrayList();
 
         try {
 
@@ -32,7 +33,7 @@ public class endereçoDAO {
             rs = stmt.executeQuery();
 
             while (rs.next()) {
-                endereço e = new endereço();
+                Endereço e = new Endereço();
                 e.setId_endereço(rs.getInt("id_endereço"));
                 e.setUsuario_id1(rs.getInt("usuario_id1"));
                 e.setRua(rs.getString("rua"));
@@ -50,4 +51,27 @@ public class endereçoDAO {
         return dao;
     }
 
+    public void criar(Endereço en) {
+        try {
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+
+            stmt = conexao.prepareStatement("insert into endereço(usuario_id1,rua,numero,cep,complemento) values (?,?,?,?,?)");
+
+            stmt.setInt(1, en.getUsuario_id1());
+            stmt.setString(2, en.getRua());
+            stmt.setInt(3, en.getNumero());
+            stmt.setString(4, en.getCep());
+            stmt.setString(5, en.getComplemento());
+            
+            stmt.executeUpdate();
+
+            stmt.close();
+            conexao.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

@@ -12,7 +12,7 @@ import java.util.Date;
  *
  * @author Senai
  */
-public class usuarios {
+public class Usuarios {
     private int id_usuario;
     private String nome;
     private String senha;
@@ -21,7 +21,7 @@ public class usuarios {
     private Date data_nascimento;
     private String cpf;
 
-    public usuarios(int id_usuario, String nome, String senha, String usuario, String telefone, Date data_nascimento, String cpf) {
+    public Usuarios(int id_usuario, String nome, String senha, String usuario, String telefone, Date data_nascimento, String cpf) {
         this.id_usuario = id_usuario;
         this.nome = nome;
         this.senha = senha;
@@ -30,7 +30,7 @@ public class usuarios {
         this.data_nascimento = data_nascimento;
         this.cpf = cpf;
     }
-    public usuarios(){
+    public Usuarios(){
         
     }
 

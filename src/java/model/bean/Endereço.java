@@ -8,7 +8,7 @@ package model.bean;
  *
  * @author User
  */
-public class endereço {
+public class Endereço {
     private int id_endereço;
     private int usuario_id1;
     private String rua;
@@ -16,7 +16,7 @@ public class endereço {
     private String cep;
     private String complemento;
 
-    public endereço(int id_endereço, int usuario_id1, String rua, int numero, String cep, String complemento) {
+    public Endereço(int id_endereço, int usuario_id1, String rua, int numero, String cep, String complemento) {
         this.id_endereço = id_endereço;
         this.usuario_id1 = usuario_id1;
         this.rua = rua;
@@ -24,7 +24,7 @@ public class endereço {
         this.cep = cep;
         this.complemento = complemento;
     }
-    public endereço(){
+    public Endereço(){
         
     }
 
