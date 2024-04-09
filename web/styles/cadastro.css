@@ -1,0 +1,13 @@
+.areaCadastro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+}
+
+main{
+    background-color: black;
+}

@@ -11,17 +11,23 @@
     </head>
 
     <body>
-        <div class="row d-flex justify-content-center">
-            <div class="container">
-                <div class="areaLogin">
+        <main>
+
+            <div class="login">
+                <form name="formLogin" method="post" action="login.jsp">
                     <h2>LOGIN</h2>
-                    <input type="text" placeholder="Usuario...">
-                    <input type="text" placeholder="Senha...">
-                    <button class="validaçaoLogin">Logar</button>
-                    <a href="./telaCadastro.jsp">nao possui login(cadastrar-se)</a>
-                </div>
+                    <input type="text" name="usuario" placeholder="Usuario..." />
+                    <br><br>
+                    <input type="password" name="senha" placeholder="Senha..." />
+                    <br><br>
+                    <button type="submit" name="entrar" value="Entrar">Entrar</button>
+                </form>
             </div>
-        </div>
+
+        </main>
+
+
+
     </body>
 
     </html>

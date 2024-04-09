@@ -50,22 +50,25 @@ public class EstoqueDAO {
         }
         return dao;
     }
-     public void update(Estoque es){
-        try{
-             Connection conexao = Conexao.conectar();
+
+    public void update(Estoque es) {
+        try {
+            Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
 
-            stmt = conexao.prepareStatement("update estoque set nome = ?, cargo = ? , idade=?, cpf = ?, departamento = ?, usuario =?, senha = ? where  idfuncionarios = ? ");
-           
+            stmt = conexao.prepareStatement("update estoque set produto_id2 = ?, quantidade_estoque=? where  id_estoque = ? ");
+            stmt.setInt(1, es.getProduto_id2());
+            stmt.setInt(2, es.getQuantidade_estoque());
+            stmt.setInt(3, es.getId_estoque());
+
             stmt.executeUpdate();
-        
 
             stmt.close();
             conexao.close();
-            
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-    
+
 }

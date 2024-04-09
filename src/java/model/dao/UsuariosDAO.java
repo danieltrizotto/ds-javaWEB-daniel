@@ -55,6 +55,35 @@ public class UsuariosDAO {
         return dao;
     }
 
+    public boolean lerLogin(String usuario, String senha) {
+        boolean check = false;
+        try {
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+
+            stmt = conexao.prepareStatement("select * from usuarios where usuario = ? and senha = ? ;");
+
+            stmt.setString(1, usuario);
+            stmt.setString(2, senha);
+
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                check = true;
+              
+            }
+
+            rs.close();
+            stmt.close();
+            conexao.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+        return check;
+    }
+
     public void criar(Usuarios u) {
         try {
             Connection conexao = Conexao.conectar();
