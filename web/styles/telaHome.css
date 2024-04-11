@@ -1,0 +1,64 @@
+header {
+    background-color: rgb(255, 0, 221);
+    width: 100vw;
+    padding: 2px;
+    box-shadow: 0px 5px 4px rgb(65, 64, 66);
+}
+
+#pesquisa {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+#pesquisa1{
+    display: flex;
+    align-items: center;
+    align-content: space-around;
+    flex-direction: row;
+}
+
+#pesquisa1 .fa-solid .fa-guitar{
+    height: 33px;
+}
+
+#pesquisa2{
+    display: flex;
+}
+
+#pesquisa img{
+width: 50px;
+height: 50px;
+}
+
+
+header h2{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: aliceblue;
+}
+#pesquisa input {
+    width: 50vh;
+    background-color: rgb(241, 241, 243);
+}
+
+#pesquisa button {
+    height: 19px;
+    background-color: rgb(123, 36, 126);
+}
+
+.categorias{
+    display: flex;
+    justify-content: space-evenly;
+    align-content: space-between;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+.categorias a{
+    text-decoration: none;
+    color: aliceblue;
+}
+
+main img{
+    height: 200px;
+}

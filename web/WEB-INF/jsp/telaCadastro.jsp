@@ -11,17 +11,19 @@
 
 <body>
 
-    <div class="container">
+
         <div class="areaCadastro">
-            <h2>LOGIN</h2>
+            <form name="formLogin" method="post" action="login.jsp">
+            <h2>Cadastro</h2>
             <input type="text" placeholder="nome..." class="nomeInput">
             <input type="text" placeholder="usuario..." class="usuarioInput">
             <input type="text" placeholder="Senha..." class="senhaInput">
             <input type="text" placeholder="telefone..." class="telInput">
             <input type="date">
-            <input type="submit" placeholder="cadastrar">
+            <button type="submit" name="entrar" value="Entrar">cadastrar</button>
+        </form>
         </div>
-    </div>
+   
 
 </body>
 

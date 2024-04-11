@@ -22,6 +22,7 @@
                     <br><br>
                     <button type="submit" name="entrar" value="Entrar">Entrar</button>
                 </form>
+                <a href="./telaCadastro.jsp">faxzer cadastro</a>
             </div>
 
         </main>
