@@ -16,7 +16,7 @@
             <div id="pesquisa">
                 <div id="pesquisa1">
                     <img src="./../assets/pngegg.png" alt="">
-                    <h2>Bocchi instrumentos</h2>
+                    <h1>Bocchi instrumentos</h1>
                 </div>
 
                 <div id="pesquisa2"><input type="text" placeholder="Pesquise um produto...">

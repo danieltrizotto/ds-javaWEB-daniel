@@ -1,3 +1,4 @@
+
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
     <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -22,7 +23,7 @@
                     <br><br>
                     <button type="submit" name="entrar" value="Entrar">Entrar</button>
                 </form>
-                <a href="./telaCadastro.jsp">faxzer cadastro</a>
+                <a href="./CadastroController">fazer cadastro</a>
             </div>
 
         </main>

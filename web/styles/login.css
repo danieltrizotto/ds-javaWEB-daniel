@@ -22,6 +22,10 @@ input{
     outline: none;
     font-size: 15px;
 }
+
+.login a{
+   align-items: center;
+}
 button{
     background-color: rgb(225, 165, 233);
     border: none;
