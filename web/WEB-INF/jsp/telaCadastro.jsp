@@ -12,18 +12,25 @@
 <body>
 
 
-        <div class="areaCadastro">
-            <form name="formLogin" method="post" action="login.jsp">
+    <div class="areaCadastro">
+        <form name="formLogin" method="post" action="login.jsp">
             <h2>Cadastro</h2>
             <input type="text" placeholder="nome..." class="nomeInput">
+            <br><br>
             <input type="text" placeholder="usuario..." class="usuarioInput">
+            <br><br>
             <input type="text" placeholder="Senha..." class="senhaInput">
+            <br><br>
             <input type="text" placeholder="telefone..." class="telInput">
-            <input type="date">
-            <button type="submit" name="entrar" value="Entrar">cadastrar</button>
+            <br><br>
+            <input type="date" class="dateInput">
+            <br><br>
+            <button type="submit" name="entrar" value="Entrar" id="cadastro">cadastrar</button>
+            <a href="./LoginController">Ir a tela de login</a>
+               
         </form>
-        </div>
-   
+    </div>
+
 
 </body>
 

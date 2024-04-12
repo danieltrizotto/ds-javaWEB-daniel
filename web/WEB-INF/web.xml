@@ -16,6 +16,10 @@
         <servlet-name>CadastroController</servlet-name>
         <servlet-class>controller.CadastroController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginController</servlet-name>
+        <servlet-class>controller.LoginController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>CadastroController</servlet-name>
         <url-pattern>/CadastroController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/LoginController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
