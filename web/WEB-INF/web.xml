@@ -20,6 +20,18 @@
         <servlet-name>LoginController</servlet-name>
         <servlet-class>controller.LoginController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>homeController</servlet-name>
+        <servlet-class>controller.homeController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>voltaLoginController</servlet-name>
+        <servlet-class>controller.voltaLoginController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>guitarController</servlet-name>
+        <servlet-class>controller.guitarController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
@@ -31,6 +43,18 @@
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/LoginController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>homeController</servlet-name>
+        <url-pattern>/homeController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>voltaLoginController</servlet-name>
+        <url-pattern>/voltaLoginController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>guitarController</servlet-name>
+        <url-pattern>/guitarController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

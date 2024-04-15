@@ -1,8 +1,8 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-    <html>
+<html>
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -12,24 +12,20 @@
     </head>
 
     <body>
-        <main>
-
-            <div class="login">
-                <form name="formLogin" method="post" action="login.jsp">
-                    <h2>LOGIN</h2>
-                    <input type="text" name="usuario" placeholder="Usuario..." />
-                    <br><br>
-                    <input type="password" name="senha" placeholder="Senha..." />
-                    <br><br>
-                    <button type="submit" name="entrar" value="Entrar">Entrar</button>
-                </form>
+    <main>
+        <div class="login">
+            <form name="formLogin" method="post" action="./homeController">
+                <h2>LOGIN</h2>
+                <input type="text" name="usuario" placeholder="Usuario..." />
+                <br><br>
+                <input type="password" name="senha" placeholder="Senha..." />
+                <br><br>
+                <button type="submit" name="entrar" value="Entrar">Entrar</button>
                 <a href="./CadastroController">fazer cadastro</a>
-            </div>
+            </form>
 
-        </main>
+        </div>
+    </main>
+</body>
 
-
-
-    </body>
-
-    </html>
+</html>

@@ -7,18 +7,28 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.dao.UsuariosDAO;
+import model.bean.Usuarios;
 
 /**
  *
  * @author aluno
  */
 public class CadastroController extends HttpServlet {
+
+    UsuariosDAO dao = new UsuariosDAO();
+    Usuarios bean = new Usuarios();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,9 +41,9 @@ public class CadastroController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-      String nextPage = "/WEB-INF/jsp/telaCadastro.jsp";
-        
+
+        String nextPage = "/WEB-INF/jsp/telaCadastro.jsp";
+
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
         dispatcher.forward(request, response);
     }
@@ -65,6 +75,34 @@ public class CadastroController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        String nome = request.getParameter("nome");
+        String usuario = request.getParameter("usuario");
+        String senha = request.getParameter("senha");
+        String telefone = request.getParameter("telefone");
+
+        String dataString = request.getParameter("data");
+
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd"); 
+        Date data = null;
+        try {
+            data = formato.parse(dataString);
+        } catch (ParseException e) {
+            // Trate qualquer erro de análise aqui
+            e.printStackTrace();
+        }
+
+        String cpf = request.getParameter("cpf");
+
+        bean.setNome(nome);
+        bean.setUsuario(usuario);
+        bean.setSenha(senha);
+        bean.setTelefone(telefone);
+        bean.setData_nascimento(data);
+        bean.setCpf(cpf);
+
+       dao.criar(bean); 
+
+    
     }
 
     /**

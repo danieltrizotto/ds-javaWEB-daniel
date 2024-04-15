@@ -12,14 +12,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.dao.UsuariosDAO;
 
 /**
  *
- * @author User
+ * @author Senai
  */
-public class LoginController extends HttpServlet {
-UsuariosDAO dao = new UsuariosDAO();
+public class homeController extends HttpServlet {
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -31,13 +30,11 @@ UsuariosDAO dao = new UsuariosDAO();
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         String nextPage = "/WEB-INF/jsp/index.jsp";
-         String homePage = "/WEB-INF/jsp/telaHome.jsp";
+     
+        String homePage = "/WEB-INF/jsp/telaHome.jsp";
         
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(homePage);
         dispatcher.forward(request, response);
-        
-         
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -67,19 +64,6 @@ UsuariosDAO dao = new UsuariosDAO();
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        // Obter os parametros de login do formulário
-        String username = request.getParameter("usuario");
-        String password = request.getParameter("senha");
-
-        // Verificar as credenciais
-        if (dao.lerLogin(username, password)) {
-            // Credenciais corretas, redirecionar para a página inicial
-            response.sendRedirect("/homeController");
-            
-        } else {
-            // Credenciais incorretas, redirecionar de volta para a página de login com uma mensagem de erro
-           response.sendRedirect("/LoginController");
-        }
     }
 
     /**

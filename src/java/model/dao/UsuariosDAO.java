@@ -80,9 +80,11 @@ public class UsuariosDAO {
     }
 
     public void criar(Usuarios u) {
+        
         try {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
+            ResultSet rs = null;
 
             stmt = conexao.prepareStatement("insert into usuarios(nome,senha,usuario,telefone,data_nascimento,cpf) values (?,?,?,?,?,?)");
             
@@ -92,6 +94,8 @@ public class UsuariosDAO {
             stmt.setString(4, u.getTelefone());
             stmt.setDate(5, (Date) u.getData_nascimento());
             stmt.executeUpdate();
+            
+           
 
             stmt.close();
             conexao.close();
@@ -99,6 +103,7 @@ public class UsuariosDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        
 
     }
 
