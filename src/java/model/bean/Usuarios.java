@@ -18,10 +18,10 @@ public class Usuarios {
     private String senha;
     private String usuario;
     private String telefone;
-    private Date data_nascimento;
+    private String data_nascimento;
     private String cpf;
 
-    public Usuarios(int id_usuario, String nome, String senha, String usuario, String telefone, Date data_nascimento, String cpf) {
+    public Usuarios(int id_usuario, String nome, String senha, String usuario, String telefone, String data_nascimento, String cpf) {
         this.id_usuario = id_usuario;
         this.nome = nome;
         this.senha = senha;
@@ -74,11 +74,11 @@ public class Usuarios {
         this.telefone = telefone;
     }
 
-    public Date getData_nascimento() {
+    public String getData_nascimento() {
         return data_nascimento;
     }
 
-    public void setData_nascimento(Date data_nascimento) {
+    public void setData_nascimento(String data_nascimento) {
         this.data_nascimento = data_nascimento;
     }
 

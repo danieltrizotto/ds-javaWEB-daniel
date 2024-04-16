@@ -48,14 +48,17 @@
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/logar</url-pattern>
     </servlet-mapping>
-    
+    <servlet-mapping>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>homeController</servlet-name>
         <url-pattern>/home</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>voltaLoginController</servlet-name>
-        <url-pattern>/logout</url-pattern>
+        <url-pattern>/voltaLogin</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>guitarController</servlet-name>

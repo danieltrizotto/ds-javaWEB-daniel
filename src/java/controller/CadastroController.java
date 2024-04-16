@@ -60,33 +60,7 @@ public class CadastroController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         String nome = request.getParameter("nome");
-        String usuario = request.getParameter("usuario");
-        String senha = request.getParameter("senha");
-        String telefone = request.getParameter("telefone");
-
-        String dataString = request.getParameter("data");
-
-        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd"); 
-        Date data = null;
-        try {
-            data = formato.parse(dataString);
-        } catch (ParseException e) {
-            // Trate qualquer erro de análise aqui
-            e.printStackTrace();
-        }
-
-        String cpf = request.getParameter("cpf");
-
-        bean.setNome(nome);
-        bean.setUsuario(usuario);
-        bean.setSenha(senha);
-        bean.setTelefone(telefone);
-        bean.setData_nascimento(data);
-        bean.setCpf(cpf);
-
-       dao.criar(bean); 
-
+         processRequest(request, response);
     }
 
     /**
@@ -101,7 +75,24 @@ public class CadastroController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-       
+        String nome = request.getParameter("nome");
+        String usuario = request.getParameter("usuario");
+        String senha = request.getParameter("senha");
+        String telefone = request.getParameter("telefone");
+
+        String data = request.getParameter("data");
+
+        String cpf = request.getParameter("cpf");
+
+        bean.setNome(nome);
+        bean.setUsuario(usuario);
+        bean.setSenha(senha);
+        bean.setTelefone(telefone);
+        bean.setData_nascimento(data);
+        bean.setCpf(cpf);
+
+       dao.inserirUsuario(bean); 
+        System.out.println("feito");
     
     }
 

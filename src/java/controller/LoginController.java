@@ -33,9 +33,9 @@ UsuariosDAO dao = new UsuariosDAO();
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
          String nextPage = "/WEB-INF/jsp/index.jsp";
-         String homePage = "/WEB-INF/jsp/telaHome.jsp";
+       
         
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(homePage);
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
         dispatcher.forward(request, response);
         
          
@@ -68,17 +68,20 @@ UsuariosDAO dao = new UsuariosDAO();
                 if (userAutenticado != null && !userAutenticado.getNome().isEmpty()) {
                     RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
                     dispatcher.forward(request, response);
+                    System.out.println("sfds");
                 } else {
                     nextPage = "/WEB-INF/jsp/index.jsp";
                     request.setAttribute("errorMessage", "Usuário ou senha inválidos");
                     RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
                     dispatcher.forward(request, response);
+                    System.out.println("nao");
                 }
             } catch (Exception e) {
                 nextPage = "/WEB-INF/jsp/index.jsp";
                 request.setAttribute("errorMessage", "Usuário ou senha inválidos");
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
                 dispatcher.forward(request, response);
+                System.out.println("nao1");
             }
         } else {
             processRequest(request, response);
@@ -96,7 +99,7 @@ UsuariosDAO dao = new UsuariosDAO();
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
+        processRequest(request, response);
     }
 
     /**

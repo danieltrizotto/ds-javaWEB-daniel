@@ -36,7 +36,7 @@ public class UsuariosDAO {
                 u.setUsuario(rs.getString("usuario"));
                 u.setSenha(rs.getString("senha"));
                 u.setTelefone(rs.getString("telefone"));
-                u.setData_nascimento(rs.getDate("data_nascimento"));
+                u.setData_nascimento(rs.getString("data_nascimento"));
                 u.setCpf(rs.getString("cpf"));
                 dao.add(u);
             }
@@ -80,32 +80,26 @@ public class UsuariosDAO {
         return usuarioValido;
     }
     
-    public void criar(Usuarios u) {
-        
+     public void inserirUsuario (Usuarios user) {
         try {
-            Connection conexao = Conexao.conectar();
+            Connection con = Conexao.conectar();
             PreparedStatement stmt = null;
-            ResultSet rs = null;
-
-            stmt = conexao.prepareStatement("insert into usuarios(nome,senha,usuario,telefone,data_nascimento,cpf) values (?,?,?,?,?,?)");
             
-            stmt.setString(1, u.getNome());
-            stmt.setString(2, u.getSenha());
-            stmt.setString(3, u.getUsuario());
-            stmt.setString(4, u.getTelefone());
-            stmt.setDate(5, (Date) u.getData_nascimento());
+            stmt = con.prepareStatement("INSERT INTO usuarios "
+                    + "(nome, senha, usuario, telefone, data_nascimento, cpf)"
+                    + "VALUES (?, ?, ?, ?, ?, ?)");
+            stmt.setString(1, user.getNome());
+            stmt.setString(2, user.getSenha());
+            stmt.setString(3, user.getUsuario());
+            stmt.setString(4, user.getTelefone());
+            stmt.setString(5, user.getData_nascimento());
+            stmt.setString(6, user.getCpf());
             stmt.executeUpdate();
-            
-           
-
             stmt.close();
-            conexao.close();
-
+            con.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        
-
     }
 
 }

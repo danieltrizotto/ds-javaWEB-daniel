@@ -13,7 +13,7 @@
 
 
     <div class="areaCadastro">
-        <form name="formCadastro" method="get" action="Cadastro">
+        <form name="formCadastro" method="post" action="Cadastro">
             <h2>Cadastro</h2>
             <input type="text" placeholder="nome..." class="nomeInput" name="nome">
             <br><br>
@@ -28,8 +28,8 @@
             <input type="text" class="cpfInput" name="cpf" placeholder="cpf...">
             <br><br>
             <button type="submit" name="entrar" value="Entrar" id="cadastro">cadastrar</button>
-            <a href="./login">Ir a tela de login</a>
         </form>
+        <a href="./login">Ir a tela de login</a>
     </div>
 
 
