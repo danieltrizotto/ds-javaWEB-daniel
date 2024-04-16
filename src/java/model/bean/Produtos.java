@@ -3,39 +3,32 @@ package model.bean;
 import java.sql.Blob;
 
 public class Produtos {
+//victor
 
-    private int id_produto;
-    private int categoria_id;
+    private int idProduto;
     private String nome;
-    private byte[] imagem;
+    private byte[] imgBlob;
     private float valor;
+    private int categoriaId;
 
-    public Produtos(int id_produto, int categoria_id, String nome, byte[] imagem, float valor) {
-        this.id_produto = id_produto;
-        this.categoria_id = categoria_id;
+    public Produtos(int idProduto, String nome, byte[] imgBlob, float valor, int categoriaId) {
+        this.idProduto = idProduto;
         this.nome = nome;
-        this.imagem = imagem;
+        this.imgBlob = imgBlob;
         this.valor = valor;
-    }
-    
-      public Produtos(){
-          
-      }
-
-    public int getId_produto() {
-        return id_produto;
+        this.categoriaId = categoriaId;
     }
 
-    public void setId_produto(int id_produto) {
-        this.id_produto = id_produto;
+    public Produtos() {
+
     }
 
-    public int getCategoria_id() {
-        return categoria_id;
+    public int getIdProduto() {
+        return idProduto;
     }
 
-    public void setCategoria_id(int categoria_id) {
-        this.categoria_id = categoria_id;
+    public void setIdProduto(int idProduto) {
+        this.idProduto = idProduto;
     }
 
     public String getNome() {
@@ -46,12 +39,12 @@ public class Produtos {
         this.nome = nome;
     }
 
-    public byte[] getImagem() {
-        return imagem;
+    public byte[] getImgBlob() {
+        return imgBlob;
     }
 
-    public void setImagem(byte[] imagem) {
-        this.imagem = imagem;
+    public void setImgBlob(byte[] imgBlob) {
+        this.imgBlob = imgBlob;
     }
 
     public float getValor() {
@@ -61,6 +54,14 @@ public class Produtos {
     public void setValor(float valor) {
         this.valor = valor;
     }
-      
-      
+
+    public int getCategoriaId() {
+        return categoriaId;
+    }
+
+    public void setCategoriaId(int categoriaId) {
+        this.categoriaId = categoriaId;
+    }
+    ////
+
 }

@@ -20,58 +20,53 @@ import model.bean.Produtos;
  */
 public class ProdutosDAO {
 
-    public List<Produtos> read() {
-        List<Produtos> dao = new ArrayList();
-
+    public List<Produtos> leitura() {
+        ////victor
+        List<Produtos> produtos = new ArrayList<>();
+        String sql = "SELECT * FROM produtos";
         try {
-
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
             ResultSet rs = null;
-
-            stmt = conexao.prepareStatement("SELECT * FROM  produtos");
-
+            stmt = conexao.prepareStatement(sql);
             rs = stmt.executeQuery();
-
             while (rs.next()) {
-                Produtos p = new Produtos();
-                p.setId_produto(rs.getInt("id_produto"));
-                p.setCategoria_id(rs.getInt("categoria_id"));
-                p.setNome(rs.getString("nome"));
-                p.setImagem(rs.getBytes("imagem"));
-                p.setValor(rs.getFloat("valor"));
-                dao.add(p);
+                Produtos objProduto = new Produtos();
+                objProduto.setIdProduto(rs.getInt("id_produto"));
+                objProduto.setNome(rs.getString("nome"));
+                objProduto.setValor(rs.getFloat("valor"));
+                objProduto.setCategoriaId(rs.getInt("categoria_id"));
+                objProduto.setImgBlob(rs.getBytes("imagem"));
+                produtos.add(objProduto);
             }
-
             rs.close();
             stmt.close();
             conexao.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("Leitura de produtos: " + e);
         }
-        return dao;
+        return produtos;
+        
     }
-
-    public void criar(Produtos p) {
+/////
+    public void insertProduto(Produtos objProduto) {
+        //victor
+        String sql = "INSERT INTO produtos(nome,imagem,valor,categoria_id)values(?,?,?,?)";
         try {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
-
-            stmt = conexao.prepareStatement("insert into pedido(categoria_id,nome,imagem,valor) values (?,?,?,?)");
-
-            stmt.setInt(1, p.getCategoria_id());
-            stmt.setString(2, p.getNome());
-            stmt.setBytes(3, p.getImagem());
-            stmt.setFloat(4, p.getValor());
+            stmt = conexao.prepareStatement(sql);
+            stmt.setString(1, objProduto.getNome());
+            stmt.setBytes(2, objProduto.getImgBlob());
+            stmt.setFloat(3, objProduto.getValor());
+            stmt.setInt(4, objProduto.getCategoriaId());
             stmt.executeUpdate();
-
             stmt.close();
             conexao.close();
-
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(" cadastro de produto: " + e);
         }
-
+        ////
     }
 
 }

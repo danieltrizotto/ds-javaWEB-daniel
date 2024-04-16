@@ -14,7 +14,7 @@
     <body>
     <main>
         <div class="login">
-            <form name="formLogin" method="post" action="./homeController">
+            <form name="formLogin" method="get" action="./home">
                 <h2>LOGIN</h2>
                 <input type="text" name="usuario" placeholder="Usuario..." />
                 <br><br>

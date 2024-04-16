@@ -28,16 +28,18 @@ public class Controller extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        ///victor
         String action = request.getServletPath();
         
         if (action.equals("/insert")) {
             product(request, response);
         }
+        /////
     }
 
     protected void product(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        ///victor
         Part filePart = request.getPart("imagem");
         InputStream inputStream = filePart.getInputStream();
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
@@ -50,10 +52,11 @@ public class Controller extends HttpServlet {
         byte[] imageBytes = outputStream.toByteArray();
 
         objProduto.setNome(request.getParameter("nome"));
-        objProduto.setCategoria_id(Integer.parseInt(request.getParameter("categoria")));
+        objProduto.setCategoriaId(Integer.parseInt(request.getParameter("categoria")));
         objProduto.setValor(Float.parseFloat(request.getParameter("valor")));
-        objProduto.setImagem(imageBytes);
-        objProdutoDao.criar(objProduto);
+        objProduto.setImgBlob(imageBytes);
+        objProdutoDao.insertProduto(objProduto);
+        /////
     }
 
 }

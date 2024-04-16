@@ -28,7 +28,7 @@
             <input type="text" class="cpfInput" name="cpf" placeholder="cpf...">
             <br><br>
             <button type="submit" name="entrar" value="Entrar" id="cadastro">cadastrar</button>
-            <a href="./voltaLoginController">Ir a tela de login</a>
+            <a href="./login">Ir a tela de login</a>
         </form>
     </div>
 
