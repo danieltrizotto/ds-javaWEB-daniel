@@ -13,7 +13,7 @@
 
 
     <div class="areaCadastro">
-        <form name="formCadastro" method="post" action="CadastroController">
+        <form name="formCadastro" method="get" action="Cadastro">
             <h2>Cadastro</h2>
             <input type="text" placeholder="nome..." class="nomeInput" name="nome">
             <br><br>

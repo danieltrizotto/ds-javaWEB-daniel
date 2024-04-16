@@ -14,14 +14,14 @@
     <body>
     <main>
         <div class="login">
-            <form name="formLogin" method="get" action="./home">
+            <form name="formLogin" method="get" action="logar">
                 <h2>LOGIN</h2>
                 <input type="text" name="usuario" placeholder="Usuario..." />
                 <br><br>
                 <input type="password" name="senha" placeholder="Senha..." />
                 <br><br>
                 <button type="submit" name="entrar" value="Entrar">Entrar</button>
-                <a href="./CadastroController">fazer cadastro</a>
+                <a href="./Cadastro">fazer cadastro</a>
             </form>
 
         </div>

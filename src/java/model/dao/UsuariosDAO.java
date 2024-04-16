@@ -50,35 +50,36 @@ public class UsuariosDAO {
         return dao;
     }
 
-    public boolean lerLogin(String usuario, String senha) {
-        boolean check = false;
+    public Usuarios validaUser(Usuarios user) {
+        Usuarios usuarioValido = new Usuarios();
         try {
-            Connection conexao = Conexao.conectar();
+            Connection con = Conexao.conectar();
             PreparedStatement stmt = null;
             ResultSet rs = null;
-
-            stmt = conexao.prepareStatement("select * from usuarios where usuario = ? and senha = ? ;");
-
-            stmt.setString(1, usuario);
-            stmt.setString(2, senha);
-
+            
+            stmt = con.prepareStatement("SELECT * FROM usuarios WHERE usuario = ? AND senha = ?");
+            stmt.setString(1, user.getUsuario());
+            stmt.setString(2, user.getSenha());
             rs = stmt.executeQuery();
-
-            if (rs.next()) {
-                check = true;
-              
+            
+            if(rs.next()) {
+                usuarioValido.setId_usuario(rs.getInt("id"));
+                usuarioValido.setNome(rs.getString("nome"));
+                usuarioValido.setUsuario(rs.getString("usuario"));
             }
-
+            
             rs.close();
             stmt.close();
-            conexao.close();
+            con.close();
         } catch (SQLException e) {
             e.printStackTrace();
-
+            usuarioValido.setId_usuario(0);
+            usuarioValido.setNome("");
+            usuarioValido.setUsuario("");
         }
-        return check;
+        return usuarioValido;
     }
-
+    
     public void criar(Usuarios u) {
         
         try {

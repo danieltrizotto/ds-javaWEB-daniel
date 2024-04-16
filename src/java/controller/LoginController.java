@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.dao.UsuariosDAO;
+import model.bean.Usuarios;
 
 /**
  *
@@ -52,7 +53,36 @@ UsuariosDAO dao = new UsuariosDAO();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+       String url = request.getServletPath();
+        if (url.equals("/logar")) {
+            String nextPage = "/WEB-INF/jsp/telaHome.jsp";
+            Usuarios user = new Usuarios();
+            UsuariosDAO valida = new UsuariosDAO();
+
+            user.setUsuario(request.getParameter("username"));
+            user.setSenha(request.getParameter("password"));
+
+            try {
+                Usuarios userAutenticado = valida.validaUser(user);
+
+                if (userAutenticado != null && !userAutenticado.getNome().isEmpty()) {
+                    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+                    dispatcher.forward(request, response);
+                } else {
+                    nextPage = "/WEB-INF/jsp/index.jsp";
+                    request.setAttribute("errorMessage", "Usuário ou senha inválidos");
+                    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+                    dispatcher.forward(request, response);
+                }
+            } catch (Exception e) {
+                nextPage = "/WEB-INF/jsp/index.jsp";
+                request.setAttribute("errorMessage", "Usuário ou senha inválidos");
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+                dispatcher.forward(request, response);
+            }
+        } else {
+            processRequest(request, response);
+        }
     }
 
     /**
@@ -66,20 +96,7 @@ UsuariosDAO dao = new UsuariosDAO();
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-        // Obter os parametros de login do formulário
-        String username = request.getParameter("usuario");
-        String password = request.getParameter("senha");
-
-        // Verificar as credenciais
-        if (dao.lerLogin(username, password)) {
-            // Credenciais corretas, redirecionar para a página inicial
-            response.sendRedirect("/homeController");
-            
-        } else {
-            // Credenciais incorretas, redirecionar de volta para a página de login com uma mensagem de erro
-           response.sendRedirect("/LoginController");
-        }
+       
     }
 
     /**
