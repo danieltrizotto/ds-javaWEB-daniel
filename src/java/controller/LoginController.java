@@ -59,9 +59,8 @@ UsuariosDAO dao = new UsuariosDAO();
             Usuarios user = new Usuarios();
             UsuariosDAO valida = new UsuariosDAO();
 
-            user.setUsuario(request.getParameter("username"));
-            user.setSenha(request.getParameter("password"));
-
+           String username =  request.getParameter("username");
+            String senha = request.getParameter("password");
             try {
                 Usuarios userAutenticado = valida.validaUser(user);
 
@@ -69,6 +68,7 @@ UsuariosDAO dao = new UsuariosDAO();
                     RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
                     dispatcher.forward(request, response);
                     System.out.println("sfds");
+                    
                 } else {
                     nextPage = "/WEB-INF/jsp/index.jsp";
                     request.setAttribute("errorMessage", "Usuário ou senha inválidos");
@@ -77,11 +77,13 @@ UsuariosDAO dao = new UsuariosDAO();
                     System.out.println("nao");
                 }
             } catch (Exception e) {
+                
                 nextPage = "/WEB-INF/jsp/index.jsp";
-                request.setAttribute("errorMessage", "Usuário ou senha inválidos");
-                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-                dispatcher.forward(request, response);
+             request.setAttribute("errorMessage", "Poblema no banco de dados" );
+    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+    dispatcher.forward(request, response);
                 System.out.println("nao1");
+                e.printStackTrace();
             }
         } else {
             processRequest(request, response);
@@ -99,7 +101,7 @@ UsuariosDAO dao = new UsuariosDAO();
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
     }
 
     /**

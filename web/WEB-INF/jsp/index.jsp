@@ -21,9 +21,9 @@
                 <input type="password" name="senha" placeholder="Senha..." />
                 <br><br>
                 <button type="submit" name="entrar" value="Entrar">Entrar</button>
+                <p class="errorMessage">${requestScope.errorMessage}</p> 
                 <a href="./Cadastro">fazer cadastro</a>
             </form>
-
         </div>
     </main>
 </body>

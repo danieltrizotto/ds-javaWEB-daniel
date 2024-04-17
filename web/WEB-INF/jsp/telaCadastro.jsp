@@ -29,7 +29,7 @@
             <br><br>
             <button type="submit" name="entrar" value="Entrar" id="cadastro">cadastrar</button>
         </form>
-        <a href="./login">Ir a tela de login</a>
+        <a href="./logar">Ir a tela de login</a>
     </div>
 
 
