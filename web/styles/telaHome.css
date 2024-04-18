@@ -11,31 +11,33 @@ header {
     justify-content: space-evenly;
     flex-direction: row;
 }
-#pesquisa1{
+
+#pesquisa1 {
     display: flex;
     align-items: center;
     align-content: space-around;
     flex-direction: row;
 }
 
-#pesquisa1 .fa-solid .fa-guitar{
+#pesquisa1 .fa-solid .fa-guitar {
     height: 33px;
 }
 
-#pesquisa2{
+#pesquisa2 {
     display: flex;
 }
 
-#pesquisa img{
-width: 50px;
-height: 50px;
+#pesquisa img {
+    width: 50px;
+    height: 50px;
 }
 
 
-header h1{
-    font-family:'Brush Script MT, Brush Script Std, cursive';
+header h1 {
+    font-family: 'Brush Script MT, Brush Script Std, cursive';
     color: aliceblue;
 }
+
 #pesquisa input {
     width: 50vh;
     background-color: rgb(241, 241, 243);
@@ -46,7 +48,7 @@ header h1{
     background-color: rgb(123, 36, 126);
 }
 
-.categorias{
+.categorias {
     display: flex;
     justify-content: space-evenly;
     align-content: space-between;
@@ -54,27 +56,57 @@ header h1{
     flex-direction: row;
 }
 
-.logout a{color:aliceblue}
+.logout a {
+    color: aliceblue
+}
 
 
-.categorias a{
+.categorias a {
     color: aliceblue;
 }
 
-main img{
+main img {
     height: 200px;
 }
 
-main{
+main {
     height: 1000px;
 }
+body{
+    height: 100px;
+}
 
-
-.produtos{
+.produtos {
     display: flex;
 }
 
-footer{
+.enviarimg form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+
+
+
+.card {
+    height: 60vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+footer {
     text-align: center;
+    height: 100%;
     background-color: rgb(255, 31, 225);
 }

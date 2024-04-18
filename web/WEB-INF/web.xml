@@ -40,17 +40,10 @@
         <servlet-name>CadastroController</servlet-name>
         <url-pattern>/Cadastro</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>LoginController</servlet-name>
-        <url-pattern>/login</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
+   
+   <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/logar</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>LoginController</servlet-name>
-        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>homeController</servlet-name>
@@ -59,6 +52,10 @@
     <servlet-mapping>
         <servlet-name>voltaLoginController</servlet-name>
         <url-pattern>/voltaLogin</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>voltaLoginController</servlet-name>
+        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>guitarController</servlet-name>

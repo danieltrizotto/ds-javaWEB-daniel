@@ -7,6 +7,7 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,7 +21,9 @@ import model.bean.Usuarios;
  * @author User
  */
 public class LoginController extends HttpServlet {
-UsuariosDAO dao = new UsuariosDAO();
+
+    UsuariosDAO dao = new UsuariosDAO();
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -32,13 +35,7 @@ UsuariosDAO dao = new UsuariosDAO();
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         String nextPage = "/WEB-INF/jsp/index.jsp";
-       
-        
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-        dispatcher.forward(request, response);
-        
-         
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -53,37 +50,38 @@ UsuariosDAO dao = new UsuariosDAO();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       String url = request.getServletPath();
+        String url = request.getServletPath();
         if (url.equals("/logar")) {
+            System.out.println("passou do url");
             String nextPage = "/WEB-INF/jsp/telaHome.jsp";
             Usuarios user = new Usuarios();
             UsuariosDAO valida = new UsuariosDAO();
 
-           String username =  request.getParameter("username");
-            String senha = request.getParameter("password");
+            user.setUsuario(request.getParameter("usuario"));
+            user.setSenha(request.getParameter("senha"));
+
             try {
                 Usuarios userAutenticado = valida.validaUser(user);
-
+                System.out.println("passou do try");
+                System.out.println("user:"+userAutenticado.getUsuario());
+                System.out.println("senha:"+userAutenticado.getSenha());
                 if (userAutenticado != null && !userAutenticado.getNome().isEmpty()) {
+                    System.out.println(" passou do if");
                     RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
                     dispatcher.forward(request, response);
-                    System.out.println("sfds");
-                    
                 } else {
                     nextPage = "/WEB-INF/jsp/index.jsp";
                     request.setAttribute("errorMessage", "Usuário ou senha inválidos");
                     RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
                     dispatcher.forward(request, response);
-                    System.out.println("nao");
+                    System.out.println("erro login");
                 }
             } catch (Exception e) {
-                
+                System.out.println("nao passou do if");
                 nextPage = "/WEB-INF/jsp/index.jsp";
-             request.setAttribute("errorMessage", "Poblema no banco de dados" );
-    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-    dispatcher.forward(request, response);
-                System.out.println("nao1");
-                e.printStackTrace();
+                request.setAttribute("errorMessage", "poblema com o banco de dados");
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+                dispatcher.forward(request, response);
             }
         } else {
             processRequest(request, response);
@@ -101,7 +99,7 @@ UsuariosDAO dao = new UsuariosDAO();
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
     }
 
     /**

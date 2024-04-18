@@ -32,22 +32,22 @@
         </div>
         <nav class="categorias">
           <div>
-            <a href="./guitarController">guitarras</a>
+            <a href="./guitarController">1.guitarras</a>
           </div>
           <div>
-            <a href="#">baterias</a>
+            <a href="#">2.baterias</a>
           </div>
           <div>
-            <a href="#">baixos</a>
+            <a href="#">3.baixos</a>
           </div>
           <div>
-            <a href="#">Pianos</a>
+            <a href="#">4.Pianos</a>
           </div>
           <div>
-            <a href="#">equipamentos</a>
+            <a href="#">5.equipamentos</a>
           </div>
           <div>
-            <a href="#">acessorios</a>
+            <a href="#">6.acessorios</a>
           </div>
         </nav>
       </div>
@@ -76,49 +76,44 @@
       </div>
       <div class="produtos">
         <h1>Produtos</h1>
-        <br><br>
-        <div class="enviarimg"><h2>Enviar Imagem</h2>
+
+        <br>
+        <br>
+
+        <div class="enviarimg">
           <form name="frmProduct" action="insert" enctype="multipart/form-data" method="post">
             <br><br>
-              <h2>IMAGEM</h2>
-              <input type="file" name="imagem" id="imagem">
-              <h2>nome<h2/>
+            <h2>IMAGEM</h2>
+            <input type="file" name="imagem" id="imagem">
+            <h2>nome
+              <h2 />
               <input type="text" name="nome">
-              <h2>categoria<h2/>
-              <input type="text"name="categoria">
-              <h2>valor<h2/>
-              <input type="text"name="valor">
-              <input type="submit" value="Enviar">
-              </form>
-        <table>
-          <thead>
-            <tr>
-              <!-- ira virar a parte de mostrar produtos -->
+              <h2>categoria
+                <h2 />
+                <input type="text" name="categoria">
+                <h2>valor
+                  <h2 />
+                  <input type="text" name="valor">
+                  <input type="submit" value="Enviar">
+          </form>
+        </div>
+        <div class="faixaprodutos">
+          
+              <%-- Use JSP para iterar sobre a lista de livros e exibi-los na tabela --%>
+                <c:forEach items="${produtos}" var="produtos">
+                  <div class="card" style="width: 18rem;">
+                    <img src="" alt="">
+                    <div class="card-body">
+                      <p name="categoria">${produtos}</p>
+                      <h5 class="card-title" name="nome">${produtos}</h5>
+                      <p class="card-text" name="preço">${produtos}</p>
+                      <button name="comprar">Add carrinho</button>
+                    </div>
+                  </div>
+                </c:forEach>
+         
+        </div>
 
-              <th>ID</th>
-              <th>categoria id</th>
-              <th>nome</th>
-              <th>foto</th>
-              <th>preço</th>
-
-              <!-- Adicione mais colunas conforme necessário -->
-            </tr>
-          </thead>
-          <tbody>
-            <%-- Use JSP para iterar sobre a lista de livros e exibi-los na tabela --%>
-              <c:forEach items="${livros}" var="livro">
-                <tr>
-                  <td>${livro.id}</td>
-                  <td>${livro.nomeLivro}</td>
-                  <td>${livro.autor}</td>
-                  <td>${livro.genero}</td>
-                  <td>${livro.editora}</td>
-                  <!-- Adicione mais colunas conforme necessário -->
-                </tr>
-              </c:forEach>
-          </tbody>
-        </table>
-      </div>
     </main>
     <footer>
       <nav class="categorias">

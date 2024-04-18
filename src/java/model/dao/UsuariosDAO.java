@@ -66,6 +66,7 @@ public class UsuariosDAO {
                 usuarioValido.setId_usuario(rs.getInt("id_usuario"));
                 usuarioValido.setNome(rs.getString("nome"));
                 usuarioValido.setUsuario(rs.getString("usuario"));
+                usuarioValido.setSenha(rs.getString("senha"));
             }
             
             rs.close();
@@ -73,9 +74,7 @@ public class UsuariosDAO {
             con.close();
         } catch (SQLException e) {
             e.printStackTrace();
-            usuarioValido.setId_usuario(0);
-            usuarioValido.setNome("");
-            usuarioValido.setUsuario("");
+           
         }
         return usuarioValido;
     }
