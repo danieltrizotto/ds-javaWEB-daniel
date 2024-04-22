@@ -79,7 +79,7 @@
 
         <br>
         <br>
-
+//victor
         <div class="enviarimg">
           <form name="frmProduct" action="insert" enctype="multipart/form-data" method="post">
             <br><br>
@@ -97,6 +97,7 @@
                   <input type="submit" value="Enviar">
           </form>
         </div>
+//victor
         <div class="faixaprodutos">
           
               <%-- Use JSP para iterar sobre a lista de livros e exibi-los na tabela --%>
