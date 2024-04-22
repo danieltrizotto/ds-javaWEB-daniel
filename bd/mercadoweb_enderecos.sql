@@ -16,33 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `pedidos_produtos`
+-- Table structure for table `enderecos`
 --
 
-DROP TABLE IF EXISTS `pedidos_produtos`;
+DROP TABLE IF EXISTS `enderecos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `pedidos_produtos` (
-  `id_pedido_produto` int(11) NOT NULL AUTO_INCREMENT,
-  `pedido_id` int(11) DEFAULT NULL,
-  `produto_id` int(11) DEFAULT NULL,
-  `quantidade` tinyint(4) DEFAULT NULL,
-  `preco_unitario` float(8,2) DEFAULT NULL,
-  PRIMARY KEY (`id_pedido_produto`),
-  KEY `pedido_id` (`pedido_id`),
-  KEY `produto_id` (`produto_id`),
-  CONSTRAINT `pedido_id` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id_pedido`),
-  CONSTRAINT `produto_id` FOREIGN KEY (`produto_id`) REFERENCES `produtos` (`id_produto`)
+CREATE TABLE `enderecos` (
+  `id_endereco` int(11) NOT NULL AUTO_INCREMENT,
+  `usuario_id1` int(11) DEFAULT NULL,
+  `rua` varchar(75) NOT NULL,
+  `numero` int(11) NOT NULL,
+  `cep` char(9) NOT NULL,
+  `complemento` varchar(75) DEFAULT NULL,
+  PRIMARY KEY (`id_endereco`),
+  KEY `usuario_id1` (`usuario_id1`),
+  CONSTRAINT `usuario_id1` FOREIGN KEY (`usuario_id1`) REFERENCES `usuarios` (`id_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `pedidos_produtos`
+-- Dumping data for table `enderecos`
 --
 
-LOCK TABLES `pedidos_produtos` WRITE;
-/*!40000 ALTER TABLE `pedidos_produtos` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pedidos_produtos` ENABLE KEYS */;
+LOCK TABLES `enderecos` WRITE;
+/*!40000 ALTER TABLE `enderecos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `enderecos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -54,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-15 17:26:34
+-- Dump completed on 2024-04-22 17:38:08

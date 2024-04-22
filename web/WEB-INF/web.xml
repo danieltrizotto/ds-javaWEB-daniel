@@ -32,6 +32,10 @@
         <servlet-name>guitarController</servlet-name>
         <servlet-class>controller.guitarController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>produtosController</servlet-name>
+        <servlet-class>controller.produtosController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
@@ -40,8 +44,7 @@
         <servlet-name>CadastroController</servlet-name>
         <url-pattern>/Cadastro</url-pattern>
     </servlet-mapping>
-   
-   <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/logar</url-pattern>
     </servlet-mapping>
@@ -53,13 +56,17 @@
         <servlet-name>voltaLoginController</servlet-name>
         <url-pattern>/voltaLogin</url-pattern>
     </servlet-mapping>
-     <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>voltaLoginController</servlet-name>
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>guitarController</servlet-name>
         <url-pattern>/guitarController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>produtosController</servlet-name>
+        <url-pattern>/produtosController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

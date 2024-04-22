@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import model.bean.Produtos;
 
@@ -32,11 +33,12 @@ public class ProdutosDAO {
             rs = stmt.executeQuery();
             while (rs.next()) {
                 Produtos objProduto = new Produtos();
-                objProduto.setIdProduto(rs.getInt("id_produto"));
+                objProduto.setId_Produto(rs.getInt("id_produto"));
                 objProduto.setNome(rs.getString("nome"));
                 objProduto.setValor(rs.getFloat("valor"));
                 objProduto.setCategoriaId(rs.getInt("categoria_id"));
-                objProduto.setImgBlob(rs.getBytes("imagem"));
+                byte[] imageBytes = rs.getBytes("imagem");
+                String base64Image = convertToBase64(imageBytes);
                 produtos.add(objProduto);
             }
             rs.close();
@@ -46,8 +48,9 @@ public class ProdutosDAO {
             System.out.println("Leitura de produtos: " + e);
         }
         return produtos;
-        
+
     }
+
 /////
     public void insertProduto(Produtos objProduto) {
         //victor
@@ -55,6 +58,7 @@ public class ProdutosDAO {
         try {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
+
             stmt = conexao.prepareStatement(sql);
             stmt.setString(1, objProduto.getNome());
             stmt.setBytes(2, objProduto.getImgBlob());
@@ -67,6 +71,24 @@ public class ProdutosDAO {
             System.out.println(" cadastro de produto: " + e);
         }
         ////
+    }
+
+    public void deletar(Produtos p) {
+        try {
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+
+            stmt = conexao.prepareStatement(
+                    "DELETE FROM produtos WHERE id_produto = ?"
+            );
+            stmt.setInt(1, p.getId_Produto());
+            stmt.executeUpdate();
+
+            stmt.close();
+            conexao.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }

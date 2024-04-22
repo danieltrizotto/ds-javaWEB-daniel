@@ -16,29 +16,33 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `estoque`
+-- Table structure for table `usuarios`
 --
 
-DROP TABLE IF EXISTS `estoque`;
+DROP TABLE IF EXISTS `usuarios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `estoque` (
-  `id_estoque` int(11) NOT NULL AUTO_INCREMENT,
-  `produto_id2` int(11) DEFAULT NULL,
-  `quantidade_estoque` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_estoque`),
-  KEY `produto_id2` (`produto_id2`),
-  CONSTRAINT `produto_id2` FOREIGN KEY (`produto_id2`) REFERENCES `produtos` (`id_produto`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE `usuarios` (
+  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(155) DEFAULT NULL,
+  `senha` varchar(45) NOT NULL,
+  `usuario` varchar(45) NOT NULL,
+  `telefone` char(14) DEFAULT NULL,
+  `data_nascimento` date DEFAULT NULL,
+  `cpf` char(11) DEFAULT NULL,
+  PRIMARY KEY (`id_usuario`),
+  UNIQUE KEY `usuario` (`usuario`,`cpf`,`telefone`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `estoque`
+-- Dumping data for table `usuarios`
 --
 
-LOCK TABLES `estoque` WRITE;
-/*!40000 ALTER TABLE `estoque` DISABLE KEYS */;
-/*!40000 ALTER TABLE `estoque` ENABLE KEYS */;
+LOCK TABLES `usuarios` WRITE;
+/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
+INSERT INTO `usuarios` VALUES (1,'daniel','1234','erty','342324232','2005-09-14','56834335'),(2,'rtre','8008','qwer','5463452345','2024-04-01','4376899989');
+/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-15 17:26:34
+-- Dump completed on 2024-04-22 17:38:08

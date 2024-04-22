@@ -59,7 +59,7 @@ header h1 {
 .logout a {
     color: aliceblue
 }
-
+ 
 
 .categorias a {
     color: aliceblue;
@@ -75,35 +75,72 @@ main {
 body{
     height: 100px;
 }
-
+.carrosel img{
+    height: 20vh;
+    width: 100%;
+}
 .produtos {
     display: flex;
 }
 
-.enviarimg form {
-    display: flex;
+h1{
+    text-align: center;
+}
+.produtos {
+    display: grid;
+    grid-template-columns: 300px 300px 300px 300px;
+    gap: 20px;
     justify-content: center;
-    flex-direction: column;
-
+    height: auto;
+    padding: 30px 0;
+    justify-items: start;
 }
 
-
-
-
-.card {
-    height: 60vh;
+.produtos .item:hover {
+    box-shadow: 0 7px 10px 0 #ff00c8;
 }
 
+.produtos .item {
+    display: grid;
+    grid-template-columns: 250px;
+    grid-template-rows: 250px 50px 30px 75px;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    text-align: center;
+    padding: 15px;
+    background-color: transparent;
+    transition: all 300ms ease-in-out 0s;
+    border: 1px solid #b1b1b1;
+    border-radius: 15px;
+    box-shadow: 0 7px 10px 0 #fc2ccf;
+}
 
+.produtos .item img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+}
 
+span {
+    font-size: 26px;
+    font-weight: 700;
+    color: orange;
+}
 
+.preço {
+    font-size: 18px;
+    font-weight: 700;
+    color: green;
+}
 
-
-
-
-
-
-
+.produtos button {
+    background-color: rgb(223, 32, 230);
+    color: white;
+    border-radius: 15px;
+    border: transparent;
+}
 
 footer {
     text-align: center;

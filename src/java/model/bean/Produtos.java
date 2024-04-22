@@ -5,14 +5,15 @@ import java.sql.Blob;
 public class Produtos {
 //victor
 
-    private int idProduto;
+    private int id_Produto;
     private String nome;
     private byte[] imgBlob;
+    private String img;
     private float valor;
     private int categoriaId;
 
-    public Produtos(int idProduto, String nome, byte[] imgBlob, float valor, int categoriaId) {
-        this.idProduto = idProduto;
+    public Produtos(int id_Produto, String nome, byte[] imgBlob, float valor, int categoriaId, String img) {
+        this.id_Produto = id_Produto;
         this.nome = nome;
         this.imgBlob = imgBlob;
         this.valor = valor;
@@ -23,12 +24,20 @@ public class Produtos {
 
     }
 
-    public int getIdProduto() {
-        return idProduto;
+    public int getId_Produto() {
+        return id_Produto;
     }
 
-    public void setIdProduto(int idProduto) {
-        this.idProduto = idProduto;
+    public void setId_Produto(int id_Produto) {
+        this.id_Produto = id_Produto;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 
     public String getNome() {

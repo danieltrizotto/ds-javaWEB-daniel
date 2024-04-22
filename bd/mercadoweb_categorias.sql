@@ -16,32 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `enderecos`
+-- Table structure for table `categorias`
 --
 
-DROP TABLE IF EXISTS `enderecos`;
+DROP TABLE IF EXISTS `categorias`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `enderecos` (
-  `id_endereco` int(11) NOT NULL AUTO_INCREMENT,
-  `usuario_id1` int(11) DEFAULT NULL,
-  `rua` varchar(75) NOT NULL,
-  `numero` int(11) NOT NULL,
-  `cep` char(9) NOT NULL,
-  `complemento` varchar(75) DEFAULT NULL,
-  PRIMARY KEY (`id_endereco`),
-  KEY `usuario_id1` (`usuario_id1`),
-  CONSTRAINT `usuario_id1` FOREIGN KEY (`usuario_id1`) REFERENCES `usuarios` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE `categorias` (
+  `id_categoria` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id_categoria`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `enderecos`
+-- Dumping data for table `categorias`
 --
 
-LOCK TABLES `enderecos` WRITE;
-/*!40000 ALTER TABLE `enderecos` DISABLE KEYS */;
-/*!40000 ALTER TABLE `enderecos` ENABLE KEYS */;
+LOCK TABLES `categorias` WRITE;
+/*!40000 ALTER TABLE `categorias` DISABLE KEYS */;
+INSERT INTO `categorias` VALUES (1,'guitarras'),(2,'baterias'),(3,'baixo'),(4,'piano');
+/*!40000 ALTER TABLE `categorias` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-15 17:26:34
+-- Dump completed on 2024-04-22 17:38:08

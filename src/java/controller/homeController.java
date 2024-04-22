@@ -7,12 +7,14 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import model.bean.Produtos;
+import model.dao.ProdutosDAO;
 /**
  *
  * @author Senai
@@ -30,9 +32,14 @@ public class homeController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-     
+       ProdutosDAO dao = new ProdutosDAO();
+        System.out.println("teste");
+        List<Produtos> produtos = dao.leitura();
+        System.out.println(produtos);
+        request.setAttribute("produtos", produtos);
+
+      
         String homePage = "/WEB-INF/jsp/telaHome.jsp";
-        
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(homePage);
         dispatcher.forward(request, response);
     }
